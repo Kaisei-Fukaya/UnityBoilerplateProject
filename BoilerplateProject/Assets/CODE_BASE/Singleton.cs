@@ -26,6 +26,11 @@ namespace KaiseiBoilerplate
         }
 	}
 
+    public class TestSingleton : Singleton<TestSingleton>
+    {
+
+    }
+
     public abstract class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviourSingleton<T>
     {
         private static T _instance;
