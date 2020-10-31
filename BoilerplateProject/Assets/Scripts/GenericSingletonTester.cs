@@ -26,28 +26,28 @@ public class GenericSingletonTester : MonoBehaviour, IUsingTimer
         //Debug.Log(normalizedDirection + " normalized direction");
         //Debug.Log(directionWithLength + " direction with length");
 
-        //TimerManager timerManager = TimerManager.Instance;
+        TimerManager timerManager = TimerManager.Instance;
         //timerManager.StartTimer(3f, this);
+        timerManager.StartStopWatch(this);
 
+        //Pool<PoolTestItem> itemPool = new Pool<PoolTestItem>(2);
 
-        Pool<PoolTestItem> itemPool = new Pool<PoolTestItem>(2);
+        //PoolItem availableItem = itemPool.FindAvailable();
+        //Debug.Log(availableItem);
 
-        PoolItem availableItem = itemPool.FindAvailable();
-        Debug.Log(availableItem);
+        //availableItem.Engage();
+        //availableItem = itemPool.FindAvailable();
+        //Debug.Log(availableItem);
 
-        availableItem.Engage();
-        availableItem = itemPool.FindAvailable();
-        Debug.Log(availableItem);
+        //availableItem.Done();
+        //availableItem = itemPool.FindAvailable();
+        //Debug.Log(availableItem);
 
-        availableItem.Done();
-        availableItem = itemPool.FindAvailable();
-        Debug.Log(availableItem);
+        //availableItem.Engage();
+        //availableItem = itemPool.FindAvailable();
+        //Debug.Log(availableItem);
 
-        availableItem.Engage();
-        availableItem = itemPool.FindAvailable();
-        Debug.Log(availableItem);
-
-        availableItem = itemPool.FindAvailable();
-        Debug.Log(availableItem);
+        //availableItem = itemPool.FindAvailable();
+        //Debug.Log(availableItem);
     }
 }
