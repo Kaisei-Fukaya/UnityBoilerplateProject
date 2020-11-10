@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KaiseiBoilerplate
 {
-    public class Pool<T> : List<PoolItem> where T : PoolItem
+    public class Pool<T> : List<T> where T : PoolItem
     {
         public int MaxCount { get; protected set; }
         public bool IsFull { get; protected set; }
@@ -14,7 +14,7 @@ namespace KaiseiBoilerplate
             MaxCount = maxCount;
         }
 
-        public PoolItem FindAvailable()
+        public T FindAvailable(GameObject _prefabToInstantiate)
         {
             IsFull = (Count == MaxCount);
 
@@ -29,8 +29,13 @@ namespace KaiseiBoilerplate
             //Return new item
             if (Count < MaxCount)
             {
-                GameObject gObject = new GameObject();
-                T comp = gObject.AddComponent<T>();
+                GameObject gObject = GameObject.Instantiate(_prefabToInstantiate);
+                T comp;
+                gObject.TryGetComponent(out comp);
+                if(comp == null)
+                {
+                    gObject.AddComponent<T>();
+                }
                 Add(comp);
                 return comp;
             }
